@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Page wrapper -->
+<div class="page-wrapper">
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+        <!-- Normal textarea -->
+        <textarea id="inputText" class="form-control" placeholder="宝宝，把你复制进来的数据粘贴到这里"></textarea>
+        <button id="sendText" class="btn btn-danger" type="button">处理数据</button>
+        <!-- Read-only textarea -->
+        <!-- Contextual classes -->
+        <!-- Contextual classes -->
+        <table class="table">
+            <tr>
+                <th class="border bg-dark-light text-light text-nowrap">序号</th>
+                <th class="border bg-dark-light text-center text-light text-nowrap">支行</th>
+                <th class="border bg-dark-light text-light text-nowrap">归属</th>
+                <th class="border bg-dark-light text-light text-nowrap">渠道{双算}</th>
+                <th class="border bg-dark-light text-light text-nowrap">转介人</th>
+                <th class="border bg-dark-light text-light text-nowrap">出单人</th>
+                <th class="border bg-dark-light text-light text-nowrap">团队渠道</th>
+                <th class="border bg-dark-light text-light text-nowrap">投保人</th>
+                <th class="border bg-dark-light text-light text-nowrap">交单时间</th>
+                <th class="border bg-dark-light text-light text-nowrap">承保时间</th>
+                <th class="border bg-dark-light text-light text-nowrap">保单号</th>
+                <th class="border bg-dark-light text-light text-nowrap">产品</th>
+                <th class="border bg-dark-light text-light text-nowrap">缴费年限</th>
+                <th class="border bg-dark-light text-light text-nowrap">保费</th>
+                <th class="border bg-dark-light text-light text-nowrap">手续费率</th>
+                <th class="border bg-dark-light text-light text-nowrap">中收</th>
+                <th class="border bg-dark-light text-light text-nowrap">保额</th>
+                <th class="border bg-dark-light text-light text-nowrap">备注</th>
+                <th class="border bg-dark-light text-light text-nowrap">件数</th>
+            </tr>
+            <tbody>
+            <tr>
+                <th>1</th>
+                <td>Default</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <th>1</th>
+                <td>Default</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <th>1</th>
+                <td>Default</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <th>1</th>
+                <td>Default</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <th>1</th>
+                <td>Default</td>
+                <td>Cell</td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" type="button" onclick="toggleDemo()">黑暗模式</button>
+    </div>
+</div>
+<!-- Halfmoon CSS -->
+<link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet"/>
+<!-- Halfmoon JS -->
+<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    // Dark mode toggle demo
+    function toggleDemo() {
+        halfmoon.toggleDarkMode();
+    }
+
+    $("#sendText").click(function () {
+        $.ajax({
+            url: "/sendString",
+            data: {inputText: $("#inputText").val()},
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                alert(data.贡献中收);
+            },
+            error(data) {
+                alert(data.贡献中收);
+            }
+        });
+    })
+</script>
+</body>
+</html>
